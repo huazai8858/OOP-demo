@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+<script>
+
+    //使用构造函数+原型的组合模式
+ function Person( age, name ){   
+     this.age = age;   
+     this.name = name;
+ }
+ Person.prototype.show = function(){  
+     console.log(this.name)
+      alert('父级方法');
+ }
+  function Worker(age,name,job){
+     //apply:改变this指向 
+     Person.apply( this,arguments);   
+      this.job = job;
+ }
+ Worker.prototype = new Person(); 
+    var Person1 = new Person(14,'张三 ');
+    var Worker1 = new Worker (25,'李四','程序员');
+    console.log(Person1)
+    console.log(Worker1)
+</script>
+
+
+
+</body>
+</html>

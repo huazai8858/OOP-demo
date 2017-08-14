@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+    function createPerson() {
+        var obj = {};
+        obj.name = "09A";
+        obj.sayName = function () {
+            alert(this.name)
+        };
+        return obj;
+    }
+
+    var Person =createPerson();
+    //构造函数的写法
+//    console.log(Person)
+    Person.sayName()
+
+    var Person2 = new createPerson() //本质也是函数执行
+    console.log(Person2);
+
+
+</script>
+
+</body>
+</html>

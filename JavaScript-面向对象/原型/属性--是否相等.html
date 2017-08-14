@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+    var a = 10;
+    var b = 10;
+console.log(a == b) //true
+
+    var arr = [1,2,3,4];
+    var arr1 = [1,2,3,4];
+    console.log(arr == arr1) //false
+
+    /*
+    * 只要创建对象，就会占用新的内存空间
+    * 判断对象是否相等，只要内存指向不一样，则不相等
+    * */
+
+    var obj ={name:"09A"};
+    var obj1 ={name:"09A"};
+    console.log(obj == obj1) //false
+
+
+    function foo() {
+    console.log(1)
+    }
+    function foo1() {
+        console.log(1)
+    }
+    console.log(foo == foo1) // false
+    var foo3 = foo;
+    console.log(foo3 == foo); //true
+</script>
+
+
+
+</body>
+</html>

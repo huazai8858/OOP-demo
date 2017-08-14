@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+    var str = "abcdefg"
+    //假设想为字符串添加一个共享的方法，应该加载string.prototype
+    String.prototype.firstUpper = function () {
+        return this.charAt(0).toUpperCase()+this.substring()
+    }
+    console.log(str.firstUpper());
+</script>
+
+</body>
+</html>

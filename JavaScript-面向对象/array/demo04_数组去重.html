@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+    var arr = [1,2,3,1,"a",5,7,"a","b"];
+
+    function first(arr) {
+        var result_arr = [];
+        var flag;
+        for(var i=0;i<arr.length;i++){
+            flag = false;
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i] == arr[j]){
+                    flag = true
+                }
+            }
+            if(!flag){
+                result_arr.push(arr[i])
+            }
+        }
+        return result_arr
+    }
+
+
+    function second(arr) {
+        var result_arr = [];
+        arr.sort()
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i] != arr[i+1]){
+                result_arr.push(arr[i])
+            }
+        }
+        return result_arr
+    }
+
+    function third(arr) {
+        var result_arr = [];
+        var obj = {}
+        for(var i=0;i<arr.length;i++){
+            if(!obj[arr[i]]){
+                result_arr.push(arr[i]);
+                obj[arr[i]] = true;
+            }
+        }
+        return result_arr
+    }
+
+//    console.info(second(arr))
+    console.warn(third(arr))
+</script>
+
+</body>
+</html>

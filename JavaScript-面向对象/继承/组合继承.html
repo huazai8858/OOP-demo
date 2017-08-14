@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+/*
+* 组合继承：属性使用call或者apply继承(类式继承)
+* 方法使用原型链继承
+* */
+
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sayName = function () {
+        console.log(this.name);
+    }
+
+    function Star(name,age,job) {
+        Person.apply(this,arguments)
+        this.job = job;
+    }
+    Star.prototype.sayJob = function () {
+        console.log(this.job)
+    }
+    var s1 = new Star("周新驰",20,"演员")
+    console.log(s1)
+    s1.sayJob()
+</script>
+
+
+
+</body>
+</html>

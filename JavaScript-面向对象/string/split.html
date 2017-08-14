@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<input id="input" type="text">
+<button>提交</button>
+<div></div>
+<script>
+    var btn = document.querySelector("button")
+    var input = document.querySelector("#input")
+    var div = document.querySelector("div")
+
+    btn.onclick =function () {
+        var str = input.value.split("");
+        var str1 = "";
+        for(var i=0;i<str.length;i++){
+            str1 += "<span style='color:"+Bcolor()+";'>"+str[i]+"</span>"
+
+        }
+        div.innerHTML+=str1;
+
+
+    }
+    function Bcolor(){
+        var colors="#";
+        for(var i=0;i<6;i++){
+            colors+=Math.floor(Math.random()*16).toString(16);
+        }
+        return colors;
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+    function Person() {
+        this.name = "09A";
+        this.age = 18;
+    }
+    var p1 = new Person();
+    var p2 = new Person();
+
+    console.log(p1.name == p2.name) //true
+    console.log(p1 == p2) //false
+
+    // protype:把方法放到原型对象上，进行共享，函数只需要创建一次，节省内存
+</script>
+
+
+
+</body>
+</html>

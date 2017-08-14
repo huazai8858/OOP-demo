@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+<script>
+   //toSting判断数据类型
+ var obj = {};
+ /*
+ * Object.prototype.toString
+ * */
+    var arr =[1,2,3];
+   //console.log(obj.toString()); //[object Object]
+   /*
+    * 强制修改object原型下的this指向，指向数组arr，
+    * 让arr去指行对象的toSting()
+    * */
+
+   console.log(Object.prototype.toString.call(arr));//[object Array]
+   console.log(Object.prototype.toString.call(123));//[object Number]
+   console.log(Object.prototype.toString.call(true));//[object Boolean]
+   console.log(Object.prototype.toString.call("123"));//[object String]
+   console.log(Object.prototype.toString.call(null));//[object null]
+   console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+
+    /*
+    * 比如判断一个东西，是不是数组
+    *
+    * */
+   console.log(Object.prototype.toString.call(arr) == "[object Array]");//true
+</script>
+</body>
+</html>

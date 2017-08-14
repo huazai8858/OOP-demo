@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <style>
+        #box div{
+            width: 250px;
+            height: 150px;
+            border: 1px solid #000;
+            display: none;
+        }
+        #box>button{
+            width: 70px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <button style="background-color:red;">1</button>
+    <button>2</button>
+    <button>3</button>
+    <div style="display: block">111111111111</div>
+    <div>222222222222</div>
+    <div>333333333333</div>
+</div>
+
+<script>
+    /*
+    *面向对象的选项卡
+     原则
+     先写出普通的写法，然后改成面向对象写法
+     普通方法变型
+     尽量不要出现函数嵌套函数
+     可以有全局变量
+     把onload中不是赋值的语句放到单独函数中
+     改成面向对象
+     全局变量就是属性
+     函数就是方法
+     Onload中创建对象
+     改this指向问题(事件或是定时器等，尽量让面向对象中的this指向对象)
+     * */
+
+    var oDiv = null;
+    var aBtn = null;
+    var aDiv = null;
+    window.onload = function () {
+        oDiv = document.querySelector("#box")
+        aBtn = oDiv.querySelectorAll("button")
+        aDiv = oDiv.querySelectorAll("div")
+        // 把onload中不是赋值的语句放到单独函数中
+        init();
+    }
+    function init(){
+        for(var i=0;i<aBtn.length;i++){
+            aBtn[i].index = i;
+            aBtn[i].onclick = change;
+        }
+    }
+        //1.不要出现函数嵌套函数
+        function change() {
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].style.backgroundColor = "";
+                aDiv[i].style.display = "none"
+            }
+            this.style.backgroundColor = "red";
+            aDiv[this.index].style.display = "block"
+        }
+
+</script>
+
+
+</body>
+</html>

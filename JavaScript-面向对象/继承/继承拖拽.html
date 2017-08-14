@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            position: absolute;
+            left: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var d1 = new Drag("#div1");
+            d1.init()
+            var d2 = new ChildDrag("#div2");
+            d2.init()
+        };
+
+        function Drag(id) {
+            this.oDiv = document.querySelector(id);
+            this.disX = 0;
+            this.disY = 0;
+        }
+
+        //
+        Drag.prototype.init = function () {
+            var This = this;
+            //改变fnDown里面的this指向
+            this.oDiv.onmousedown = function (ev) {
+                This.fnDown(ev);
+            };
+        }
+
+        Drag.prototype.fnDown = function (ev) {
+            var ev = ev || event;
+            this.disX = ev.clientX - this.oDiv.offsetLeft;
+            this.disY = ev.clientY - this.oDiv.offsetTop;
+
+            var This = this;
+            document.onmousemove = function (ev) {
+                This.fnMove(ev);
+            };
+            document.onmouseup = this.fnUp;
+            return false;
+        }
+
+        Drag.prototype.fnUp = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+
+        Drag.prototype.fnMove = function (ev) {
+            var ev = ev || event;
+            this.oDiv.style.left = ev.clientX - this.disX + "px";
+            this.oDiv.style.top = ev.clientY - this.disY + "px";
+        }
+
+
+        function ChildDrag() {
+            Drag.apply(this,arguments)
+        }
+
+        (function () {
+            var Sup = function () {};
+            Sup.prototype = Drag.prototype;
+            ChildDrag.prototype = new Sup();
+        })();
+
+        ChildDrag.prototype.fnMove = function (ev) {
+            var ev = ev || event;
+            var l = ev.clientX - this.disX;
+            var t = ev.clientY - this.disY;
+            if(l<=0)l=0;
+            if(l>=screen.width-this.oDiv.offsetWidth)l=screen.width-this.oDiv.offsetWidth;
+            if(t<=0)t=0;
+            if(t>=screen.height-this.oDiv.offsetHeight)t=screen.height-this.oDiv.offsetHeight;
+            this.oDiv.style.left = l + "px";
+            this.oDiv.style.top = t + "px";
+        }
+    </script>
+</head>
+<body>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+</body>
+</html>

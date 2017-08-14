@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sayName = function () {
+        console.log(this.name)
+    }
+    function Star(name,age,job) {
+        Person(name,age)
+        //使用call修改Person里面的this指向当前上下文，环境
+        /*
+        * call和apply使用方式类似，第一个参数都是要重新指向的对象(上下文)，
+        * call传参数的话，并列的方式，以逗号隔开
+        *
+        * apply传参使用 数组
+        * */
+        //Person.call(this,name,age)
+
+       // Person.apply(this,[name,age])
+        /* apply可以传递arguments对象*/
+        Person.apply(this,arguments)
+        this.job = job;
+    }
+    Star.prototype.sayJob = function () {
+        console.log(this.name);
+        console.log(this.age);
+    }
+    var s1 = new Star("黄晓明",20,"演员")
+    s1.sayJob()
+</script>
+
+</body>
+</html>

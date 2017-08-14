@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+
+    function Parent() {
+        this.name = "09A"
+        this.age = 18
+    }
+    Parent.prototype.sayName = function () {
+        console.log(1)
+    };
+
+
+    var p1 =new Parent()
+
+    /*
+    Object原型上的一个方法
+    * hasOwnProperty()
+    *
+    * */
+    //判断某个属性，是不是当前对象的私有属性
+    console.log(p1.hasOwnProperty("sayName"))
+
+    /*
+    * in
+    *操作符
+    *判断原型链上是否有这个属性
+    * */
+    //console.log( "name" in p1 )
+    console.log( "constructor" in p1 )
+
+</script>
+
+
+
+</body>
+</html>

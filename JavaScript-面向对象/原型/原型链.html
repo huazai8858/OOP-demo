@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+
+    function Parent() {
+        this.name = "09A";
+    }
+    Parent.prototype.age = 20;
+    Parent.prototype.sayName =function () {
+        console.log(1)
+    }
+    var p1 = new Parent();
+//   console.log(p1)
+    //console.log(p1.__proto__ === Parent.prototype);//true
+
+    /*
+    * 继承，原型链都市通过__proto__来实现的
+    *
+    * 每一个 实例化对象都有一个__proto__属性，指向构造函数的原型对象
+    *
+    * 原型链：由__proto__ 连接起来的，从实例化对象到Object.prototype再到null的一
+    * */
+    p1.name
+    /*
+    * 对象访问属性的时候，先访问私有属性(自身的)，有则返回，
+    * 没有则沿着原型链继续向上查找，如果有，则返回对应的属性值
+    * 如果没有，继续查找
+    * 如果到Object.prototype原型对象上还没有的滑
+    * 继续向上，找到null，返回undefined
+    * */
+    console.log(p1.name)//09A
+</script>
+
+
+
+</body>
+</html>

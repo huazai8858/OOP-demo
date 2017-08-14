@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+    var MobilePhone = (function(){
+        //私有属性
+        var count = 0;//代表手机的数量
+        var index = 0;//代表手机的索引
+        //构造函数
+        var creatphone = function(color,size,price){
+            count++;
+            this._color = color; //手机的颜色
+            this._size = size; //手机的大小
+            this._price = price; //手机的价格
+            this.index = count; //手机索引，是第几台创建的手机手象
+        }
+        //公有方法，存放在原型对象中
+        creatphone.prototype = {
+            "constructor":creatphone,
+            "getColor" : function(){
+                return this._color;
+            },
+            "setColor" : function(color){
+                this._color = color;
+            },
+            "getSize" : function(){
+                return "width:"+this._size.width + " height:" + this._size.height;
+            },
+            "setSize" : function(size){
+                this._size.width = size.width;
+                this._size.height = size.height;
+            },
+            "getPrice" : function(){
+                return this._price;
+            },
+            "setPrice" : function(price){
+                this._price = price
+            }
+        }
+        //特权方法
+        creatphone.get_count_index = function(){
+            return count
+        }
+        return creatphone;
+    })()
+
+    var anycall = new MobilePhone(); //实例一个三星手机对象
+    var HTC = new MobilePhone(); //实例一个HTC手机对象
+    var Iphone4s = new MobilePhone(); //实例一个苹果4S手机对象
+    console.log("三星是第："+anycall.index+"台"); //FF的控制台输出三星手机对象是第几台创建的，即索引；
+    console.log("HTC是第："+HTC.index+"台"); //FF的控制台输出HTC手机对象是第几台创建的，即索引；
+    console.log("Iphone4s是第："+Iphone4s.index+"台");  //FF的控制台输出个苹果4S手机对象是第几台创建的，即索引；
+    console.log("总共造出了"+MobilePhone.get_count_index()+"手机"); //FF的控制台输出总共创建了几台手机；
+    console.log(anycall.constructor === MobilePhone); //实例出来的对象，的原形象中的constructor，是否还指向MobilePhone
+
+</script>
+
+
+
+
+</body>
+</html>

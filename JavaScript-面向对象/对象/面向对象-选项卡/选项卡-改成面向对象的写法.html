@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <style>
+        #box div{
+            width: 250px;
+            height: 150px;
+            border: 1px solid #000;
+            display: none;
+        }
+        #box>button{
+            width: 70px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <button style="background-color:red;">1</button>
+    <button>2</button>
+    <button>3</button>
+    <div style="display: block">111111111111</div>
+    <div>222222222222</div>
+    <div>333333333333</div>
+</div>
+
+<script>
+    window.onload = function () {
+        var t1 = new Tab();
+        //2. 把onload中不是赋值的语句放到单独函数中
+        t1.init();
+    }
+    function Tab() {
+        this.oDiv = document.querySelector("#box")
+        this.aBtn = this.oDiv.querySelectorAll("button")
+        this.aDiv = this.oDiv.querySelectorAll("div")
+    }
+
+    Tab.prototype.init = function (){
+        var This = this;
+        for(var i=0;i<this.aBtn.length;i++){
+            this.aBtn[i].index = i;
+            this.aBtn[i].onclick = function () {
+                This.change(this)
+            };
+
+        }
+    }
+        //1.不要出现函数嵌套函数
+    Tab.prototype.change = function (obj) {
+            for(var i=0;i<this.aBtn.length;i++){
+                this.aBtn[i].style.backgroundColor = "";
+                this.aDiv[i].style.display = "none"
+            }
+            obj.style.backgroundColor = "red";
+            this.aDiv[obj.index].style.display = "block"
+        }
+
+</script>
+
+
+</body>
+</html>

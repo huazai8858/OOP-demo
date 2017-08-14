@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+    /*
+    * push()
+    * pop()
+    * unshift()
+    * shift()
+    *
+    *sort()
+    *
+    * reverse():配合split实现字符串反转
+    *
+    * slice
+    *
+    * join()
+    *
+    * concat():
+    *
+    *splice(开始删除的下标,删除几个元素,...(插入的内容))
+    * */
+    var arr = [6,3,5,1,7,9,21,8]
+//    arr.sort()
+    arr.sort(function (a,b) {
+        /*
+        * 如果返回值为整数，两个数字就会交换顺序
+        * */
+        //正序
+//        return a-b
+        //逆序
+//        return b-a
+        //随机
+        return Math.random()-0.5
+    })
+    console.log(arr)
+
+</script>
+
+</body>
+</html>

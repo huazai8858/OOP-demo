@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+<script>
+
+    /*
+     * 1.
+     *a = undefined
+     * a= function () {
+             console.log(a)
+          }
+     * //预解析，只会保留一个同名的
+     * (优先保留有值的,都有值得话，看先后顺序，谁后声明，保留谁)
+     *   !!如果同名，只留function
+     * 2.逐行执行代码
+     */
+
+    alert(a)
+    var a = 1;
+    alert(a);
+    function a() {
+        console.log(111)
+        console.log(a)
+    }
+    alert(a)
+    var a = 2
+    alert(a)
+//    function a() {
+//        console.log(222)
+//        console.log(a);
+//    }
+//    alert(a)
+
+</script>
+
+</body>
+</html>

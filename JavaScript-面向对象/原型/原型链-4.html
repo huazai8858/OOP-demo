@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+
+    function Parent() {
+        this.name = "09A"
+        this.age = 18
+    }
+    Parent.prototype.sayName = function () {
+        console.log(1)
+    };
+
+
+    var p1 =new Parent()
+    /*
+    * instanceof 和 in一样 都是二元运算符
+    *
+    * instanceof 判断在原型链上是否有这个构造函数
+    *
+    * */
+    //console.log(p1 instanceof Parent);
+
+
+    function foo() {
+
+    }
+    console.log(p1 instanceof foo);
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+
+    function Parent() {
+        this.name = "09A"
+        this.age = 18
+    }
+    Parent.prototype.sayName = function () {
+        console.log(1)
+    };
+    /*
+    * 每一个原型对象都有一个默认的属性，是constructor
+    * 指向构造函数的
+    *
+    * */
+
+    console.log(Parent.prototype.constructor == Parent); //true
+
+    var p1 =new Parent()
+    /*
+    * for/in 循环遍历对象
+    * */
+    for(var i in p1){
+        console.log(i);
+        /*
+        *隐藏属性，for/in循环遍历不到
+        * __proto__
+        * constructor
+        * */
+    }
+</script>
+
+
+
+</body>
+</html>

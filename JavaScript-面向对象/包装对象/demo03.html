@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+</head>
+<body>
+
+
+<script>
+    var str = "abcdefg"
+    /*
+    * 访问num,先创建一个String实例化对象，然后给这个对象添加num属性
+    * 添加完之后对象销毁了
+    * 之后再访问num，又创建一个新的实例化对象，没有num属性，为undefined
+    *
+    *
+    * */
+    str.num = 10;
+    console.log(str.num)//undefined
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: deeppink;
+            position: absolute;
+            left: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div></div>
+
+<script>
+
+    window.onload = function () {
+        var drag = new Drag();
+        drag.init()
+    }
+    function Drag() {
+        this.disX =0
+        this.disY =0
+        this.oDiv = document.querySelector("div");
+    }
+    Drag.prototype.init = function () {
+        var This = this;
+        this.oDiv.onmousedown = function (ev) {
+            This.fnDown(ev);
+        };
+    }
+    Drag.prototype.fnDown = function (ev) {
+        var ev = ev || event;
+        this.disX =  ev.clientX - this.oDiv.offsetLeft;
+        this.disY =  ev.clientY - this.oDiv.offsetTop ;
+        var This = this;
+        document.onmousemove =function (ev) {
+            This.fnMove(ev)
+        };
+        document.onmouseup = this.fnUp;
+
+        return false;
+    }
+    Drag.prototype.fnMove = function (ev) {
+        var ev = ev || event;
+        this.oDiv.style.left = ev.clientX - this.disX + "px";
+        this.oDiv.style.top = ev.clientY -  this.disY + "px" ;
+    }
+    Drag.prototype.fnUp = function () {
+        document.onmousemove = null;
+        document.onmouseup = null;
+    }
+    
+    
+</script>
+
+
+</body>
+</html>
